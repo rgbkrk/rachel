@@ -1,3 +1,9 @@
+# The Data sets
+
+FTC-DEFCON Data Set 1.csv
+FTC-DEFCON Data Set 2.csv
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
