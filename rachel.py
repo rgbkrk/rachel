@@ -162,29 +162,33 @@ def massage_dataset(dataset="FTC1.csv"):
     Y["NUM_TO_CALLS"] = Y["TO"].apply(get_size)
     return Y
 
+def main(train="FTC1.csv", test="FTC2.csv"):
+    print("Massaging datasets")
+    Y = massage_dataset(train)
+    print("Set 1 done")
+    Z = massage_dataset(test)
+    print("Set 2 done")
+    
+    train_data = Y
+    test_data = Z
+    
+    c = 285 # min samples split
+    
+    train_features, train_target = enriched_data_to_features(train_data)
+    test_features, _ = enriched_data_to_features(test_data)
+    
+    classifier = train(train_features, train_target, c)
+    predictions = classifier.predict(test_features)
+    
+    X = Z[["FROM", "TO", "DATE/TIME"]]
+    
+    X["LIKELY ROBOCALL"] = predictions
+    
+    # Turn back into the format the FTC wanted
+    X["LIKELY ROBOCALL"] = X["LIKELY ROBOCALL"].apply(lambda x: "X" if x else "")
+    
+    X.to_csv("predictions.csv", index=False)
 
-print("Massaging datasets")
-Y = massage_dataset("FTC-DEFCON Data Set 1.csv")
-print("Set 1 done")
-Z = massage_dataset("FTC-DEFCON Data Set 2.csv")
-print("Set 2 done")
+if __name__ == "__main__":
+    main()
 
-train_data = Y
-test_data = Z
-
-c = 285 # min samples split
-
-train_features, train_target = enriched_data_to_features(train_data)
-test_features, _ = enriched_data_to_features(test_data)
-
-classifier = train(train_features, train_target, c)
-predictions = classifier.predict(test_features)
-
-X = Z[["FROM", "TO", "DATE/TIME"]]
-
-X["LIKELY ROBOCALL"] = predictions
-
-# Turn back into the format the FTC wanted
-X["LIKELY ROBOCALL"] = X["LIKELY ROBOCALL"].apply(lambda x: "X" if x else "")
-
-X.to_csv("predictions.csv", index=False)
