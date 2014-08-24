@@ -33,7 +33,7 @@ python rachel.py
 To bring up an environment with the notebooks and python files in one IPython notebook package, run this in Docker.
 
 ```
-docker run -it -e "PASSWORD=pickyourownpasswordnotyournose" -d -p 8888:8888 probablyrgbkrk/collaborachel
+docker run -it -e "PASSWORD=pickyourownpasswordnotyournose" -d -p 8888:8888 rgbkrk/rachel 
 ```
 
 Then browse to https://127.0.0.1:8888.
