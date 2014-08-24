@@ -10,8 +10,9 @@ You'll need some of the scientific python stack for this, particularly:
 * pandas
 * scikit-learn
 * scipy
+* matplotlib
 
-Assuming you have the binary dependencies, just
+Assuming you have the binary dependencies (e.g. `apt-get build-dep python-scipy python-numpy python-matplotlib`), just
 
 ```
 pip install -r requirements.txt
@@ -19,7 +20,7 @@ pip install -r requirements.txt
 
 ## Analysis
 
-Our [IPython notebook is available on the Notebook Viewer](http://nbviewer.ipython.org/github/probablyrgbkrk/robocaller/blob/master/enrich.ipynb).
+Our [IPython notebook is available on the Notebook Viewer](http://nbviewer.ipython.org/github/rgbkrk/rachel/blob/master/Rachel%20the%20Robo%20Caller.ipynb).
 
 ## Run through the original data set
 
