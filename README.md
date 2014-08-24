@@ -29,7 +29,7 @@ python rachel.py
 
 ## Analysis Machine
 
-To bring up an environment with the notebooks and python files in one IPython notebok package, run this in Docker.
+To bring up an environment with the notebooks and python files in one IPython notebook package, run this in Docker.
 
 ```
 docker run -it -e "PASSWORD=pickyourownpasswordnotyournose" -d -p 8888:8888 probablyrgbkrk/collaborachel
